@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Book</h1>
+    <form method="post">
+        <label for="judul">Title:</label>
+        <input type="text" id="judul" name="judul" value="{{ book[1] }}" required>
+
+        <label for="penulis">Author:</label>
+        <input type="text" id="penulis" name="penulis" value="{{ book[2] }}" required>
+
+        <label for="penerbit">Publisher:</label>
+        <input type="text" id="penerbit" name="penerbit" value="{{ book[3] }}" required>
+
+        <label for="tahun_terbit">Year:</label>
+        <input type="number" id="tahun_terbit" name="tahun_terbit" value="{{ book[4] }}" required>
+
+        <label for="deskripsi">Description:</label>
+        <textarea id="deskripsi" name="deskripsi" rows="5" required>{{ book[5] }}</textarea>
+
+        <button type="submit">Save Changes</button>
+    </form>
+    <a href="{{ url_for('buku_index') }}">Back to Book List</a>
+</body>
+</html>
